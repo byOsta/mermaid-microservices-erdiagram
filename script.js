@@ -39,7 +39,7 @@ window.onload = async () => {
         if (element != "allMicroservicesIntegration.mmd") {
             listFiles.push({ fileName: element.replace(".mmd", ""), show: true, showFields: true, text: "", tables: [] })
         } else {
-            fetch("/microservices/allMicroservicesIntegration.mmd", {
+            fetch(window.location.href.replace("/index.html", "") + "/microservices/allMicroservicesIntegration.mmd", {
                 headers: {
                     "Accept": "application/json, text/plain, */*",
                 },
@@ -51,7 +51,7 @@ window.onload = async () => {
     });
 
     await Promise.all(listFiles.map(file =>
-        fetch("/microservices/" + file.fileName + ".mmd", {
+        fetch(window.location.href.replace("/index.html", "") + "/microservices/" + file.fileName + ".mmd", {
             headers: {
                 "Accept": "application/json, text/plain, */*",
             },
