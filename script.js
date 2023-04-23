@@ -6,7 +6,7 @@ var allMicroservicesIntegration = null;
 mermaid.initialize({ startOnLoad: true });
 
 var getFiles =
-    fetch("/microservices/", {
+    fetch(window.location.href.replace("/index.html", "") + "/microservices/", {
         headers: {
             "Accept": "application/json, text/plain, */*",
         },
@@ -17,7 +17,7 @@ var getFiles =
         });
 
 const getFile = async function (x) {
-    fetch("/microservices/" + x, {
+    fetch(window.location.href.replace("/index.html", "") + "/microservices/" + x, {
         headers: {
             "Accept": "application/json, text/plain, */*",
         },
