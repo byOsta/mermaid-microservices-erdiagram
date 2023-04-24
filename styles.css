@@ -1,72 +1,198 @@
+:root {
+  --color-1: #e6194B;
+  --color-2: #3cb44b;
+  --color-3: #ffe119;
+  --color-4: #4363d8;
+  --color-5: #f58231;
+  --color-6: #911eb4;
+  --color-7: #42d4f4;
+  --color-8: #f032e6;
+  --color-9: #bfef45;
+  --color-10: #fabed4;
+  --color-11: #469990;
+  --color-12: #dcbeff;
+  --color-13: #9A6324;
+  --color-14: #fffac8;
+  --color-15: #800000;
+  --color-16: #aaffc3;
+  --color-17: #808000;
+  --color-18: #ffd8b1;
+  --color-19: #000075;
+  --color-20: #a9a9a9;
+
+  --darker-color-1: #c2163b;
+  /* --darker-color-1: green; */
+  --darker-color-2: #2a8d3b;
+  --darker-color-3: #d6c216;
+  --darker-color-4: #3049b3;
+  --darker-color-5: #d36b24;
+  --darker-color-6: #7d1aa3;
+  --darker-color-7: #36b5d1;
+  --darker-color-8: #c926d4;
+  --darker-color-9: #a4d032;
+  --darker-color-10: #e6a4c9;
+  --darker-color-11: #356c7d;
+  --darker-color-12: #bca5e6;
+  --darker-color-13: #7d4d1f;
+  --darker-color-14: #e6e0a9;
+  --darker-color-15: #660000;
+  --darker-color-16: #8fd8a2;
+  --darker-color-17: #666600;
+  --darker-color-18: #d1b184;
+  --darker-color-19: #000055;
+  --darker-color-20: #8f8f8f;
+
+  --font-1: white;
+  --font-2: white;
+  --font-3: black;
+  --font-4: white;
+  --font-5: white;
+  --font-6: white;
+  --font-7: white;
+  --font-8: white;
+  --font-9: white;
+  --font-10: white;
+  --font-11: white;
+  --font-12: white;
+  --font-13: white;
+  --font-14: white;
+  --font-15: white;
+  --font-16: white;
+  --font-17: white;
+  --font-18: white;
+  --font-19: white;
+  --font-20: white;
+
+
+}
+
+.menu-btn {
+  color: black;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 24px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  padding: 10px 10px 10px 10px;
+  top: 0;
+  left: 0;
+
+  user-select: none;
+
+}
+
+#erDiv {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#erDiv svg {
+  height: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
 body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
   background-color: #ededed;
 }
 
+#collapseMenu:checked+.menu {
+  display: block;
+}
 
-:root{
-    --color-1: #e6194B;	
-    --color-2: #3cb44b;	
-    --color-3: #ffe119;	
-    --color-4: #4363d8;	
-    --color-5: #f58231;	
-    --color-6: #911eb4;	
-    --color-7: #42d4f4;	
-    --color-8: #f032e6;	
-    --color-9: #bfef45;	
-    --color-10: #fabed4;	
-    --color-11: #469990;	
-    --color-12: #dcbeff;	
-    --color-13: #9A6324;	
-    --color-14: #fffac8;	
-    --color-15: #800000;	
-    --color-16: #aaffc3;	
-    --color-17: #808000;	
-    --color-18: #ffd8b1;	
-    --color-19: #000075;	
-    --color-20: #a9a9a9;	
+#collapseMenu:not(:checked)+.menu {
+  display: none;
+}
 
-    --darker-color-1: #c2163b;
-    /* --darker-color-1: green; */
-    --darker-color-2: #2a8d3b;
-    --darker-color-3: #d6c216;
-    --darker-color-4: #3049b3;
-    --darker-color-5: #d36b24;
-    --darker-color-6: #7d1aa3;
-    --darker-color-7: #36b5d1;
-    --darker-color-8: #c926d4;
-    --darker-color-9: #a4d032;
-    --darker-color-10: #e6a4c9; 
-    --darker-color-11: #356c7d; 
-    --darker-color-12: #bca5e6; 
-    --darker-color-13: #7d4d1f; 
-    --darker-color-14: #e6e0a9; 
-    --darker-color-15: #660000; 
-    --darker-color-16: #8fd8a2; 
-    --darker-color-17: #666600; 
-    --darker-color-18: #d1b184; 
-    --darker-color-19: #000055; 
-    --darker-color-20: #8f8f8f; 
+.menu {
+  font-family: "trebuchet ms", verdana, arial, sans-serif;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-    --font-1: white; 
-    --font-2: white; 
-    --font-3: black; 
-    --font-4: white; 
-    --font-5: white; 
-    --font-6: white; 
-    --font-7: white; 
-    --font-8: white; 
-    --font-9: white; 
-    --font-10: white;
-    --font-11: white;
-    --font-12: white;
-    --font-13: white;
-    --font-14: white;
-    --font-15: white;
-    --font-16: white;
-    --font-17: white;
-    --font-18: white;
-    --font-19: white;
-    --font-20: white;
+.menu-header {
+  text-align: right;
+  margin-bottom: 10px;
+}
 
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+.service,
+.fields {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.service label,
+.fields label {
+  margin-left: 5px;
+}
+
+.headBtn {
+  font-size: 20px;
+  border-radius: 20%;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+  user-select: none;
+  color: black;
+  background-color: gainsboro;
+
+}
+
+thead {
+  text-align: center;
+}
+
+table tbody tr td:not(:first-child) {
+  text-align: center;
+}
+
+.showAll {
+  color: black;
+  background-color: #82f06e;
+}
+
+.hideAll {
+  color: black;
+  background-color: #f06060;
+}
+
+#downloadSvg {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 12px;
+  line-height: 20px;
+  height: 30px;
+  max-height: 30px;
+  background: #fff;
+  font-weight: 700;
+  border: 2px solid #DAE3F3;
+  border-radius: 0;
+  color: #272C34;
+  transition-timing-function: ease-in-out;
+  transition-property: box-shadow;
+  transition-duration: 150ms;
+}
+
+#downloadSvg:hover {
+  box-shadow: 0 2px 2px rgb(39 44 52 / 12%);
 }

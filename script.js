@@ -5,6 +5,8 @@ var erDiv;
 var allMicroservicesIntegration = null;
 mermaid.initialize({ startOnLoad: true });
 
+
+
 var getFiles =
     fetch(window.location.href.replace("/index.html", "") + "/microservices/", {
         headers: {
@@ -28,9 +30,20 @@ const getFile = async function (x) {
         })
 }
 
-
-
 window.onload = async () => {
+
+    const downloadButton = document.querySelector('#downloadSvg');
+    downloadButton.addEventListener('click', () => {
+
+        const downloadLink = document.querySelector('#downloadSvgLink');
+
+        const svgElement = document.querySelector('svg');
+        downloadLink.setAttribute('download', 'image.svg');
+        downloadLink.setAttribute('href', 'data:image/svg+xml;base64,' + btoa(svgElement.outerHTML));
+
+        downloadLink.click();
+    });
+
     erDiv = document.getElementById('erDiv');
 
     var files = (await getFiles).sort().filter((fileName) => fileName.includes(".mmd"));

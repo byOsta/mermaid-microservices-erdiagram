@@ -7,135 +7,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.js"></script>
     <script src="./script.js"></script>
-    <style>
-        .menu-btn {
-            color: black;
-            display: inline-block;
-            font-weight: bold;
-            font-size: 24px;
-            height: 20px;
-            width: 20px;
-            text-align: center;
-            cursor: pointer;
-            position: absolute;
-            padding: 10px 10px 10px 10px;
-            top: 0;
-            left: 0;
-
-            user-select: none;
-
-        }
-
-        #erDiv {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        #erDiv svg {
-            height: 100%;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-
-        body {
-            padding: 0;
-            margin: 0;
-            height: 100vh;
-            overflow: hidden;
-            /* Hide scrollbars */
-
-        }
-
-        #collapseMenu:checked+.menu {
-            display: block;
-        }
-
-        #collapseMenu:not(:checked)+.menu {
-            /* display: block; */
-            display: none;
-        }
-
-
-
-
-        .menu {
-            font-family: "trebuchet ms", verdana, arial, sans-serif;
-            position: absolute;
-            top: 10px;
-            left: 40px;
-            padding: 10px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            /* display: none; */
-        }
-
-        .menu-header {
-            text-align: right;
-            margin-bottom: 10px;
-        }
-
-        .menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service,
-        .fields {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .service label,
-        .fields label {
-            margin-left: 5px;
-        }
-
-        /* 
-        tr:has([id$="-show"]:checked)>td {
-            background-color: red;
-        } */
-
-        .headBtn {
-            font-size: 20px;
-            border-radius: 20%;
-            padding-left: 5px;
-            padding-right: 5px;
-            cursor: pointer;
-            user-select: none;
-            color: black;
-            background-color: gainsboro;
-
-        }
-
-        thead {
-            text-align: center;
-        }
-
-        table tbody tr td:not(:first-child) {
-            text-align: center;
-        }
-
-        .showAll {
-            color: black;
-            background-color: #82f06e;
-        }
-
-        .hideAll {
-            color: black;
-            background-color: #f06060;
-        }
-    </style>
 </head>
 
 <body>
-
     <div>
         <label for="collapseMenu" class="menu-btn">≡</label>
         <input hidden type="checkbox" id="collapseMenu">
         <div class="menu">
+            <table>
+                <thead>
+                    <th><button id="downloadSvg">Download SVG</button><a id="downloadSvgLink"></a></th>
 
+                </thead>
+            </table>
             <table>
                 <thead>
                     <td></td>
@@ -174,8 +58,6 @@
         </div>
     </div>
     <div id="erDiv"></div>
-
-
-
 </body>
+
 </html>
