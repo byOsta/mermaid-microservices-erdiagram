@@ -342,9 +342,9 @@ const show = async function () {
             diagram += line;
 
         }
-
-
     }
+
+    console.log(diagram);
 
     mermaid.render('graphDivInner', diagram, function (svgCode) {
         erDiv.innerHTML = svgCode;
