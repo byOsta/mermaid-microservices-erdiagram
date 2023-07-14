@@ -29,7 +29,7 @@ WHERE c.TABLE_TYPE IN ('BASE TABLE', 'VIEW')
 UNION ALL
 SELECT 
     -- '    ' + c1.name + ' }|--|| ' + c2.name + ' : "has"'
-    '    ' + c1.name + ' }|--|| ' + c2.name + ' : ""'
+    '    ' + c2.name + ' ||--|{ ' + c1.name + ' : ""'
 FROM sys.foreign_keys f
 JOIN sys.tables c1 ON f.parent_object_id = c1.object_id
 JOIN sys.tables c2 ON f.referenced_object_id = c2.object_id;
