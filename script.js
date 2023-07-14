@@ -285,13 +285,13 @@ function updateShowFields(index, val) {
     listFiles[index].showFields = val;
 }
 
-function getlineNumberofChar(data, index) {
+function getLineNumberOfChar(data, index) {
     var perLine = data.split('\n');
     var total_length = 0;
     for (i = 0; i < perLine.length; i++) {
-        total_length += perLine[i].length;
+        total_length += perLine[i].length + 1;
         if (total_length >= index)
-            return perLine[i];
+            return perLine[i + 1];
     }
 }
 
@@ -330,17 +330,12 @@ const show = async function () {
     console.log(currentTables)
 
     for (var i = 0; i < integrationMatches.length; i += 2) {
-
-        var line = getlineNumberofChar(allMicroservicesIntegration, integrationMatches[i].index)
-
-        // console.log(line)
-        console.log()
-        console.log()
-
         if (currentTables.includes(integrationMatches[i][1].trim().replace('"', "")) &&
             currentTables.includes(integrationMatches[i + 1][1].trim().replace('"', ""))) {
+            
+            var line = getLineNumberOfChar(allMicroservicesIntegration, integrationMatches[i].index)
             diagram += line;
-
+            
         }
     }
 
