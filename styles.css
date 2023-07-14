@@ -21,7 +21,6 @@
   --color-20: #a9a9a9;
 
   --darker-color-1: #c2163b;
-  /* --darker-color-1: green; */
   --darker-color-2: #2a8d3b;
   --darker-color-3: #d6c216;
   --darker-color-4: #3049b3;
@@ -48,14 +47,14 @@
   --font-4: white;
   --font-5: white;
   --font-6: white;
-  --font-7: white;
+  --font-7: black;
   --font-8: white;
-  --font-9: white;
-  --font-10: white;
+  --font-9: black;
+  --font-10: black;
   --font-11: white;
-  --font-12: white;
+  --font-12: black;
   --font-13: white;
-  --font-14: white;
+  --font-14: black;
   --font-15: white;
   --font-16: white;
   --font-17: white;
