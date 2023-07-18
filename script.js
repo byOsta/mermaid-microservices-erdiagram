@@ -133,18 +133,18 @@ window.onload = async () => {
         showAll = showAll != null ? !showAll : true;
 
         if (showAll) {
+            // showAllFields = true;
+            
             showAllBtn.classList.remove("hideAll");
             showAllBtn.classList.add("showAll");
 
-            document.querySelectorAll("[id$='-show']").forEach(chk => {
+            document.querySelectorAll("[id$='-show']").forEach((chk, key, arr) => {
                 if (chk.checked == false) {
                     chk.checked = true;
-                    let event = new Event('change');
+                    let event = new CustomEvent('change', { detail: { isLastRun: Object.is(arr.length - 1, key), isShowAll: true }});
                     chk.dispatchEvent(event);
                 }
             })
-
-
 
         } else {
             showAllFields = false;
@@ -152,9 +152,9 @@ window.onload = async () => {
             showAllBtn.classList.remove("showAll");
             showAllBtn.classList.add("hideAll");
 
-            document.querySelectorAll("[id$='-show']").forEach(chk => {
+            document.querySelectorAll("[id$='-show']").forEach((chk, key, arr) => {
                 chk.checked = false;
-                let event = new Event('change');
+                let event = new CustomEvent('change', { detail: { isLastRun: Object.is(arr.length - 1, key), isShowAll: true }});
                 chk.dispatchEvent(event);
 
 
@@ -175,9 +175,9 @@ window.onload = async () => {
                 showAllFieldsBtn.classList.remove("hideAll");
                 showAllFieldsBtn.classList.add("showAll");
 
-                document.querySelectorAll("[id$='-showFields']:not(:disabled)").forEach(chk => {
+                document.querySelectorAll("[id$='-showFields']:not(:disabled)").forEach((chk, key, arr) => {
                     chk.checked = true
-                    let event = new Event('change');
+                    let event = new CustomEvent('change', { detail: { isLastRun: Object.is(arr.length - 1, key)}});
                     chk.dispatchEvent(event);
 
                 })
@@ -186,9 +186,9 @@ window.onload = async () => {
                 showAllFieldsBtn.classList.remove("showAll");
                 showAllFieldsBtn.classList.add("hideAll");
 
-                document.querySelectorAll("[id$='-showFields']").forEach(chk => {
+                document.querySelectorAll("[id$='-showFields']").forEach((chk, key, arr) => {
                     chk.checked = false
-                    let event = new Event('change');
+                    let event = new CustomEvent('change', { detail: { isLastRun: Object.is(arr.length - 1, key)}});
                     chk.dispatchEvent(event);
 
                 })
@@ -215,13 +215,13 @@ window.onload = async () => {
                 if (this.checked) {
                     showFds.disabled = false
                     showFds.checked = showAllFields ?? false
-                    let event = new Event('change');
-                    showFds.dispatchEvent(event);
+                    let newEvent = new CustomEvent('change', { detail: { isLastRun: event.detail != null ? event.detail.isLastRun : true }});
+                    showFds.dispatchEvent(newEvent);
                 } else {
                     showFds.disabled = true
                     showFds.checked = false
-                    let event = new Event('change');
-                    showFds.dispatchEvent(event);
+                    let newEvent = new CustomEvent('change', { detail: { isLastRun: event.detail != null ? event.detail.isLastRun : true }});
+                    showFds.dispatchEvent(newEvent);
                 }
 
                 if ([...document.querySelectorAll("[id$='-show']")].every(x => x.checked == true)) {
@@ -270,7 +270,9 @@ window.onload = async () => {
                 }
             }
 
-            show()
+            if (event.detail == null || event.detail.isLastRun){
+                show()
+            }
 
         });
     })
@@ -339,7 +341,8 @@ const show = async function () {
         }
     }
 
-    console.log(diagram);
+    console.log("Diagram Gen");
+    // console.log(diagram); //ENABLE ON DEBUG
 
     mermaid.render('graphDivInner', diagram, function (svgCode) {
         erDiv.innerHTML = svgCode;
